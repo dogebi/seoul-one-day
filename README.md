@@ -105,3 +105,10 @@ REA 증거(로컬 CDP 관찰, Chrome/145.0.7632.6):
 - **섹션 추가**: `<section class="slide" data-title="…">` + 레일 버튼 `data-goto` + `go()`의 `slides.length` 계산이 이미 일반화되어 있어 마크업만 추가하면 9장도 동작.
 - **색 교체**: `:root`의 4색만 바꾸면 전체 파생(테두리·링·진행바·선택 상태)이 따라옴.
 - **주의**: 폰트는 SUIT(OFL) — 임베드 재배포 가능. 이미지는 "AI 생성" 표기가 본문에 명시되어 있으니 그 표기를 지우지 말 것.
+
+## 7. 배포
+
+- 공개 URL: <https://dogebi.github.io/seoul-one-day/> — 이 저장소(`dogebi/seoul-one-day`)의 **프로젝트 Pages**(브랜치 `main`, 경로 `/`)가 직접 서비스.
+- 갱신 방법: `main`에 커밋하면 Pages가 자동으로 다시 빌드한다(빌드 ≈ 40초). 로컬에서 이 회선은 `git push`가 자주 끊기므로 GitHub Contents API로 커밋해도 결과는 같다.
+- 허브 저장소 `dogebi/dogebi.github.io`에는 더 이상 사본을 두지 않는다(아티팩트 86MB 중 61.7MB를 차지해 legacy 빌드가 `syncing_files` 단계에서 타임아웃했음).
+- MP4 2편은 릴리스 `media-v1` 에셋으로도 보관되어 있다.
