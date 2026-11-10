@@ -106,7 +106,15 @@ REA 증거(로컬 CDP 관찰, Chrome/145.0.7632.6):
 - **색 교체**: `:root`의 4색만 바꾸면 전체 파생(테두리·링·진행바·선택 상태)이 따라옴.
 - **주의**: 폰트는 SUIT(OFL) — 임베드 재배포 가능. 이미지는 "AI 생성" 표기가 본문에 명시되어 있으니 그 표기를 지우지 말 것.
 
-## 7. 배포
+## 7. 다국어 (KO / EN / JA / CN)
+
+- 우측 상단 `KO · EN · JA · CN` 버튼으로 전환. 선택은 `localStorage('seoul-lang')`에 기억되고, 첫 방문은 브라우저 언어를 따라갑니다(`<html lang>`도 함께 변경).
+- 번역 원본은 `i18n/<lang>.json` (flat key, 306개). **문구 수정은 JSON만 고치고** `python3 build_i18n.py` → `i18n.js` 재생성. `i18n.js`는 생성물이므로 직접 편집하지 않습니다.
+- `i18n/runtime.js`가 정적 DOM(제목·라벨·aria·출처 문구)을 치환하고, `seoul-i18n` 이벤트를 던지면 `app.js`가 데이터 배열(heritage/culture/tastes/night/days)을 다시 만들어 현재 선택 상태를 재적용합니다.
+- 숫자 스케일은 언어별 보정이 있습니다(예: EN `1,454.3만 명` → `14.5 M visitors`). `build_i18n.py`의 `OVERRIDES` 참고.
+- 영상 2편(MP4)에 들어간 한글 자막·타이포는 영상에 구워진 것이라 번역되지 않습니다. 다국어가 필요하면 영상도 언어별로 다시 뽑아야 합니다.
+
+## 8. 배포
 
 - 공개 URL: <https://dogebi.github.io/seoul-one-day/> — 이 저장소(`dogebi/seoul-one-day`)의 **프로젝트 Pages**(브랜치 `main`, 경로 `/`)가 직접 서비스.
 - 갱신 방법: `main`에 커밋하면 Pages가 자동으로 다시 빌드한다(빌드 ≈ 40초). 로컬에서 이 회선은 `git push`가 자주 끊기므로 GitHub Contents API로 커밋해도 결과는 같다.
